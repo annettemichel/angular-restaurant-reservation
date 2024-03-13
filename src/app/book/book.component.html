@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="booking-form">
+      <input [(ngModel)]="newReservationTitle" placeholder="title">
+      <input [(ngModel)]="newReservationAuthor" placeholder="author">
+      <button (click)="addReservation()" class="btn btn-primary">Hinzufügen</button>
+    </div>
+    @for (reservation of reservations; track reservation.id; let i = $index) {
+      {{ reservation.title }}<br>
+      {{ reservation.author }}
+      <button (click)="deleteReservation(i)" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
+    }
+  </div>
+</div>

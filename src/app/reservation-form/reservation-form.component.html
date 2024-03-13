@@ -1,0 +1,36 @@
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+
+  <div class="reservation-form">
+    <label>Datum</label>
+    <input type="date" formControlName="reservationDate">
+    @if (reservationForm.get("reservationDate")?.invalid && reservationForm.get("reservationDate")?.touched) {
+      <div>Es muss noch ein Datum ausgewählt werden!</div>
+    }
+
+    <label>Uhrzeit</label>
+    <input type="time" formControlName="reservationTime">
+    @if (reservationForm.get("reservationTime")?.invalid && reservationForm.get("reservationTime")?.touched) {
+      <div>Es muss noch eine Uhrzeit ausgewählt werden!</div>
+    }
+
+    <label>Vorname</label>
+    <input type="text" formControlName="reservationFirstName">
+    @if (reservationForm.get("reservationFirstName")?.invalid && reservationForm.get("reservationFirstName")?.touched) {
+      <div>Es muss noch ein Vorname angegeben werden!</div>
+    }
+
+    <label>Nachname</label>
+    <input type="text" formControlName="reservationLastName">
+    @if (reservationForm.get("reservationLastName")?.invalid && reservationForm.get("reservationLastName")?.touched) {
+      <div>Es muss noch ein Nachname angegeben werden!</div>
+    }
+
+    <label>E-Mail</label>
+    <input type="email" formControlName="reservationEmail">
+    @if (reservationForm.get("reservationEmail")?.invalid && reservationForm.get("reservationEmail")?.touched) {
+      <div>Es muss noch eine Email-Addresse angegeben werden!</div>
+    }
+
+  </div>
+  <button type="submit" [disabled]="reservationForm.invalid">Abschicken</button>
+</form>
